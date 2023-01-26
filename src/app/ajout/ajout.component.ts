@@ -14,13 +14,20 @@ export class AjoutComponent {
   }
   
   ajout(){
-    this._shared.heros.push(this.hero);
-    this.hero={
-      name : '',
-      power : 0 ,
-      image : ''
+   this._shared.createNewHero(this.hero).subscribe(
+    res =>{
+      this.hero ={
+        name : '',
+        power : 0 ,
+        image : ''
+      }
+      
+    },
+    err =>{
+      console.log(err);
+      
     }
-    
+   )
   }
 
   constructor(public _shared : SharedService){}
