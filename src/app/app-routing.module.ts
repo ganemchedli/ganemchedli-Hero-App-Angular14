@@ -1,7 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-const routes: Routes = [];
+import { AjoutComponent } from './ajout/ajout.component';
+import { ListeComponent } from './liste/liste.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+const routes: Routes = [
+  {path:'' , redirectTo:'/ajout' , pathMatch: 'full'},
+  {path : 'ajout' , component :AjoutComponent},
+  {path : 'liste' , component : ListeComponent},
+  {path : '**' , component : NotfoundComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
