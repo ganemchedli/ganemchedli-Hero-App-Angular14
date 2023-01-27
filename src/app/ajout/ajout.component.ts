@@ -9,17 +9,26 @@ import { SharedService } from '../shared.service';
 export class AjoutComponent {
   hero ={
     name : '',
-    power : 0 ,
-    image : ''
+    power : 0 
   }
-  
+  image : any ;
+  selectImage(e : any){
+    this.image = e.target.files[0] ;
+    console.log(this.image);
+    
+  }
   ajout(){
-   this._shared.createNewHero(this.hero).subscribe(
+    let formData = new FormData();
+    formData.append('name' , this.hero.name);
+    formData.append('power' , this.hero.power.toString());
+    formData.append('image' , this.image) ;
+
+   this._shared.createNewHero(formData).subscribe(
     res =>{
       this.hero ={
         name : '',
-        power : 0 ,
-        image : ''
+        power : 0 
+        
       }
       
     },

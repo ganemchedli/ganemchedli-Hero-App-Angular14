@@ -17,7 +17,6 @@ export class ListeComponent {
       },
       err=>{
         console.log(err);
-        
       }
     )
   }

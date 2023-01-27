@@ -17,8 +17,9 @@
     </div>
     <div class="col-3">
       <input
-        [(ngModel)]="hero.image"
-        type="text"
+        (change) = "selectImage($event)"
+        
+        type="file"
         class="form-control m-1"
         placeholder="image url"
       />
